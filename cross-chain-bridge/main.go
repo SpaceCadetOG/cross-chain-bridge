@@ -21,7 +21,7 @@ func main() {
 	}
 
 	r := mux.NewRouter()
-	r.Handle("/api/v1/eth/{module}", handler.ClientHandler{client})
+	r.Handle("/api/v1/eth/{module}", handlers.ClientHandler{client})
 	log.Fatal(http.ListenAndServe(":8080", r))
 
 }

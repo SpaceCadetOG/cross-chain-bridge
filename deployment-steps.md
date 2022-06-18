@@ -1,6 +1,6 @@
-*Example CLI Command*
+*Example CLI Command to transfer eth*
 
-in terminal => go run main.go
+in terminal run => go run main.go
 Go to => http://localhost:8080/api/v1/eth/latest-block on browser
 
 in terminal =>

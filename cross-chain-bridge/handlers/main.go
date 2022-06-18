@@ -1,4 +1,4 @@
-package handler
+package handlers
 
 import (
 	"cross-chain-bridge/models"
