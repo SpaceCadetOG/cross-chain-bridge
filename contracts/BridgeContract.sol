@@ -8,7 +8,7 @@ contract BridgeContract {
   BridgeToken public token;
 
   mapping(address => mapping(uint256 => bool)) public hasProcessed;
-  mapping(address => uint256) public transferCount;
+  mapping(address => uint256) public transfers;
 
   enum Type {
     BURN,
@@ -38,7 +38,7 @@ contract BridgeContract {
     uint256 nonce,
     bytes calldata signature
   ) external {
-    transferCount[msg.sender] = transferCount[msg.sender] + 1;
+    transfers[msg.sender] = transfers[msg.sender] + 1;
     token.burn(msg.sender, amount);
     emit Transfer(
       msg.sender,
@@ -65,7 +65,7 @@ contract BridgeContract {
 
     require(signer == from, "incorret Signature");
 
-    uint256 id = transferCount[to];
+    uint256 id = transfers[to];
     hasProcessed[to][id] = true;
 
     token.mint(to, amount);
